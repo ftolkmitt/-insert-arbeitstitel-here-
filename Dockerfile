@@ -9,7 +9,7 @@ LABEL version="1.0.0"
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install all TeX and LaTeX dependences
-RUN add-apt-repository ppa:texlive-backports/ppa && \\
+RUN add-apt-repository ppa:texlive-backports/ppa && \
   apt-get update && \
   apt-get install --yes --no-install-recommends \
   fontconfig
