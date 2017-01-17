@@ -6,7 +6,7 @@
 # to `latest`! See
 # https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # for a list of version numbers.
-FROM phusion/baseimage:<VERSION>
+FROM phusion/baseimage:latest
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
