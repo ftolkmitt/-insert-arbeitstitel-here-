@@ -13,9 +13,7 @@ CMD ["/sbin/my_init"]
 
 # ...put your own build instructions here...
 # Install all TeX and LaTeX dependences
-RUN apt-get install  --yes --no-install-recommends software-properties-common && \
-  add-apt-repository ppa:texlive-backports/ppa && \
-  apt-get update && \
+RUN apt-get update && \
   apt-get install --yes --no-install-recommends \
   fontconfig \
   git \
