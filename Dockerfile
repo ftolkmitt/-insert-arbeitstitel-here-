@@ -26,6 +26,7 @@ RUN apt-get update && \
   texlive-lang-english \
   texlive-lang-portuguese \
   texlive-xetex \
+  texlive-fonts-extra \
   texlive-lang-german && \
   apt-get autoclean && apt-get --purge --yes autoremove && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
