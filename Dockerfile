@@ -9,8 +9,7 @@ LABEL version="1.0.0"
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install all TeX and LaTeX dependences
-RUN 
-  apt-get install  --yes --no-install-recommends software-properties-common &&\
+RUN apt-get install  --yes --no-install-recommends software-properties-common && \
   add-apt-repository ppa:texlive-backports/ppa && \
   apt-get update && \
   apt-get install --yes --no-install-recommends \
