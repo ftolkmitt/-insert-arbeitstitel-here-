@@ -1,0 +1,28 @@
+	\begin{tikzpicture}
+		\node [role] (v2) at (0,0) {
+		\textbf{Rolle}};
+	\node [class] (v1) at (5,1.5) {
+		\textbf{natürlicher Typ}
+	};
+	
+		\node [class] (v3) at (5,-1.5) {
+		\textbf{natürlicher Typ 2}
+	};
+\draw [fulfilment] (v1) edge (v2);
+\draw [fulfilment] (v3) edge (v2);
+\draw [line,fill=black](2,-2) node (v4) {} -- (2.5,-2) -- (2.5,-3) -- (3,-3) -- (2.2461,-3.5079) -- (1.5,-3) -- (2,-3) -- (v4);
+\node [role] (v6) at (0,-4.5) {
+\textbf{abstractRole}};
+\node [role] (v7) at (2,-6) {
+\textbf{RoleForTypeOne}};
+\node [role] (v5) at (-2,-7.5) {
+\textbf{RoleForTypeTwo}};
+\draw [inheritance] (v5) edge (v6);
+\draw [inheritance] (v7) edge (v6);
+\node [class] (v8) at (6,-6) {
+		\textbf{natürlicher Typ}};
+\node [class] (v9) at (6,-7.5) {
+		\textbf{natürlicher Typ 2}};
+\draw [fulfilment] (v8) edge (v7);
+\draw [fulfilment] (v9) edge (v5);
+\end{tikzpicture}

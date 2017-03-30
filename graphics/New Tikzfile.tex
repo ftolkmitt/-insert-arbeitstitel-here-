@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+
+\node [class,rectangle split, rectangle split parts=2,text width = 8.5cm] (v2) at (-3.5,2) {
+\textbf{CompilerFactory}
+\nodepart{second} getCompartmentCompiler():Compiler\textless Compartment\textgreater \\
+				getNaturalTypeCompiler():Compiler\textless NaturalType\textgreater \\
+				getFieldCompiler():Compiler\textless Attribute\textgreater \\
+				getMethodCompiler():Compiler\textless Method\textgreater \\
+				getRoleTypeCompiler():Compiler\textless RoleType\textgreater \\
+};
+
+
+\node [class,text width= 7cm] (v1) at (-3.5,-3.5) {\textbf{OTCompilerFactory}};
+
+\draw [inheritance] (v1) edge (v2);
+
+\node [class,rectangle split,rectangle split parts=2] (v4) at (5,1.5) {
+\textbf{Compiler}\\
+\nodepart{second}compile():String};
+\node [class,dashed,text width= 3 cm] at (7.5695,1.8128) {\textbf{T : EObject}};
+\node [class,text width=,rectangle split,rectangle split parts=2] (v3) at (5,-1) {\textbf{Compiler\textless Compartment\textgreater}};
+\node [class,text width=,rectangle split,rectangle split parts=2] (v5) at (5,-3.5) {\textbf{OTTeamCompiler}};
+\draw [implementation] (v3) edge node[left,align=right]{\textless \textless bind\textgreater \textgreater \\ T -\textgreater Compartment} (v4);
+\draw [dottedarrow] (v2.5) edge node[above]{\textless \textless create\textgreater \textgreater} (v4);
+\draw [inheritance] (v5) edge (v3);
+\draw [dottedarrow] (v1) edge node[above]{\textless \textless create\textgreater \textgreater} (v5.175);
+
+\draw [fill=black] (9,-3) circle (0.1);
+\draw [fill=black] (10,-3) circle (0.1);
+\draw [fill=black] (9.5,-3) circle (0.1);
+\node at (9.5,-2.5) {etc.};
+\end{tikzpicture}s

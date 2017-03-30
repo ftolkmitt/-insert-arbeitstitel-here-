@@ -1,0 +1,17 @@
+
+\begin{tikzpicture}
+	\node [role,rectangle split, rectangle split parts=3] at (-5,0) {\textbf{RoleType}
+	\nodepart{second}Felder
+\nodepart{third}Methoden()};
+	\node [class,thick,text width=5cm, rectangle split, rectangle split parts=4] at (0,0) {
+		\textbf{CompartmentType}
+		\nodepart{second}Felder
+		\nodepart{third}Methoden()
+		\nodepart{fourth} Rollenmodell \\ ~ \\ \tikz{\node [role] at (-5,0) {\textbf{RoleType}};} };
+\node [class,rectangle split, rectangle split parts=3] at (-9,0) {\textbf{NaturalType}
+\nodepart{second}Felder
+\nodepart{third}Methoden()};
+\node at (-9,-4) {(a)};
+\node at (-5,-4) {(b)};
+\node at (0,-4) {(c)};
+\end{tikzpicture}

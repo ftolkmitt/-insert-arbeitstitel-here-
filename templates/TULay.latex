@@ -1,0 +1,57 @@
+% !TeX encoding = UTF-8
+\documentclass[colortitle]{tudbook}
+
+\input{preambel/usedPackages}
+
+\input{preambel/colors}
+
+\input{preambel/listings}
+
+\input{preambel/tikz}
+
+\input{preambel/fontGefrickel}
+
+\input{preambel/todoCommands}
+
+\input{preambel/references}
+
+\input{preambel/misc}
+
+\newcommand{\ignore}[1]{}
+\begin{document}
+\pagenumbering{gobble}
+\univLightIX
+\thesis{$whatIsIt$}
+\author{$author$}
+\moreauthor{$moreauthor$}
+\title{$title$}
+\supervisor{$supervisor$}
+\einrichtung{Fakultät Informatik}
+\institut{Institut für Software- und Multimediatechnik}
+\professur{Lehrstuhl Softwaretechnologie}
+\submitdate{\today}
+\logofilename{graphics/STgroupLogo2.pdf}
+
+\maketitle
+
+\pagenumbering{roman}
+$if(lof)$
+  \listoffigures
+$endif$
+  \onehalfspacing
+$if(lot)$
+  \listoftables
+$endif$
+  \singlespacing
+$if(toc)$
+  \tableofcontents
+$endif$  
+  \onehalfspacing
+\pagenumbering{arabic}
+
+$body$
+
+  \bibliography{quellen}{}
+  \bibliographystyle{apalike}
+
+\end{document}

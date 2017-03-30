@@ -1,0 +1,69 @@
+\newcommand{\renvoi}[3][pos=0.5]{
+\path (#2) -- (#3)coordinate[#1](mm);
+\draw[-latex,normarrow] (#2) --($(#2.south)+(0,-0.5)$) |- ($(#3.north)+(0,1)$)--(#3);
+}
+
+\newcommand{\renvoii}[3][pos=0.5]{
+\path (#2) -- (#3)coordinate[#1](mm);
+\draw[-latex,normarrow] (#2) --($(#2.south)+(0,-0.5)$) |- ($(#3.east)+(0.2,0)$)--(#3);
+}
+
+\newcommand{\renvoiid}[3][pos=0.5]{
+\path (#2) -- (#3)coordinate[#1](mm);
+\draw[-latex,dottedarrow] (#2) --($(#2.south)+(0,-0.5)$) |- ($(#3.east)+(0.2,0)$)--(#3);
+}
+
+\newcommand{\renvoiii}[3][pos=0.5]{
+\path (#2) -- (#3)coordinate[#1](mm);
+\draw[-latex,normarrow] (#2) --($(#2.west)+(-0.3,0)$) |- ($(#3.east)+(0.2,0)$)--(#3);
+}
+
+\begin{tikzpicture}
+
+\node [class] (v1) at (0,0) {\textbf{Constraint}};
+\node [class] (v13) at (-4,-2) {\textbf{relationale Constraints}};
+\node [class] (v4) at (0,-2) {\textbf{klassische Rollenconstraints}};
+\node [class] (v5) at (-2,-8) {\textbf{role-dontcare}};
+\node[class,text width = 3.2cm] (v7) at (-2,-4) {\textbf{Rollenimplikation}};
+\node [class] (v8) at (-2,-6) {\textbf{Rollenequivalenz}};
+\node [class] (v6) at (-2,-5) {\textbf{Rollenprohibition}};
+\node [class] (v14) at (-6,-6) {\textbf{antisymmetrisch}};
+\node [class] (v15) at (-6,-7) {\textbf{reflexiv}};
+\node [class] (v16) at (-6,-8) {\textbf{transitiv}};
+\node [class] (v18) at (-10,-6) {\textbf{total}};
+\node [class] (v19) at (-6,-5) {\textbf{surjektiv}};
+\node [class] (v20) at (-6,-9) {\textbf{asymmetrisch}};
+\node [class] (v17) at (-6,-4) {\textbf{irreflexiv}};
+\node [class] (v21) at (-6,-10) {\textbf{azyklisch}};
+\node [class] (v22) at (-6,-12) {\textbf{Rollensingleton}};
+\node [class] (v23) at (2,-4) {\textbf{Rollengruppen}};
+\node [class] (v24) at (2,-6) {\textbf{klassische Constraints mit Rollengruppenbeteiligung}};
+\node [class] (v2) at (4,-2) {\textbf{komplexe Rollenconstraints}};
+
+
+
+\renvoi{v1}{v13}
+\renvoi{v1}{v4}
+\renvoi{v1}{v2}
+
+\renvoii{v13}{v17}
+\renvoii{v13}{v16}
+\renvoii{v13}{v14}
+\renvoii{v13}{v15}
+\renvoii{v13}{v21}
+\renvoii{v13}{v19}
+\renvoii{v13}{v20}
+\renvoiid{v13}{v22}
+
+\renvoiii{v14}{v18}
+\renvoiii{v16}{v18}
+\renvoiii{v15}{v18}
+
+\renvoii{v4}{v7}
+\renvoii{v4}{v8}
+\renvoii{v4}{v6}
+\renvoiid{v4}{v5}
+
+\renvoii{v2}{v24}
+\renvoii{v2}{v23}
+\end{tikzpicture}

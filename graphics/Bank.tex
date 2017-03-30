@@ -1,0 +1,54 @@
+\begin{tikzpicture}
+
+\node [class,rectangle split,rectangle split parts=4,text width=19cm] at (-0.5,0) {
+\textbf{Bank}
+\nodepart{second}{name:String}
+\nodepart{third}{login(id:int,credentials:String):Customer \\ executeTransactions():boolean}
+\nodepart{fourth}{
+	\tikz{
+		\node [role,rectangle split,rectangle split parts=3,text width=5cm](cust) at (-5,0) {\textbf{Customer}
+		\nodepart{second}{id:int \\ name:String}
+		\nodepart{third}{addSavingsAccount():boolean \\ addCheckingsAccount():boolean \\ getAccounts():int[] \\ getBalance(id:int):Money \\ transfer(from:int,to:int):boolean \\ sendAccountStatement(id:int)}
+		};
+		\node [role,rectangle split,rectangle split parts=3,text width=5cm](check) at (2,0) {\textbf{CheckingsAccount}
+		\nodepart{second}{limit:Money}
+		\nodepart{third}{decrease(amount:Money) \\ getLimit():Money \\ setLimit(limit:Money)}
+		};
+		\node [role,rectangle split,rectangle split parts=3,text width=5cm](sav) at (2,-3.5) {\textbf{SavingsAccount}
+		\nodepart{second}{limit:Money}
+		\nodepart{third}{decrease(amount:Money) \\ getLimit():Money \\ setLimit(limit:Money)}
+		};
+		\draw [dottedline,rounded corners] (-1,0.5) rectangle (5,-6.5);
+		\draw [line] (cust) edge (sav);
+		\node [rectangle] (muh) at (-1,-1) {0..*};
+		\node [rectangle] (muh) at (-2.1,-1.2) {1};
+		\node [rectangle] (muh2) at (-1,-3) {0..*};
+		\node [rectangle] (muh3) at (-2,-3.3) {1..*};
+		\draw [line] (cust) edge (check);
+		\node [role,rectangle split,rectangle split parts=3,text width=5cm](sav) at (-11,0) {\textbf{Transaction}
+		\nodepart{second}{limit:Money}
+		\nodepart{third}{decrease(amount:Money) \\ getLimit():Money \\ setLimit(limit:Money)}
+		};
+	}
+}
+};
+\node [class,rectangle split,rectangle split parts=4,text width=16cm] at (-2,-11) {
+\textbf{Transaction}
+\nodepart{second}{creationTime:DateTime \\ amount:Money}
+\nodepart{third}{bind(source:Account,target:Account):boolean \\ execute():boolean}
+\nodepart{fourth}{
+	\tikz{
+		\node [role,rectangle split,rectangle split parts=3,text width=5cm](src) at (-9,0.5) {\textbf{Source}
+		\nodepart{second}{limit:Money}
+		\nodepart{third}{decrease(amount:Money) \\ getLimit():Money \\ setLimit(limit:Money)}
+		};
+		\node [role,rectangle split,rectangle split parts=3,text width=5cm](targ) at (-2,0.5) {\textbf{Target}
+		\nodepart{second}{limit:Money}
+		\nodepart{third}{decrease(amount:Money) \\ getLimit():Money \\ setLimit(limit:Money)}
+		};
+		\draw [dottedline,rounded corners] (1,) rectangle (-12,-2.5);
+		\draw [line] (src) edge node[rectangle]{1\ \ \ \ \ \ \ \ \ 1}(targ);
+	}
+}
+};
+\end{tikzpicture}

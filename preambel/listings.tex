@@ -1,0 +1,30 @@
+\lstset{
+	linebackgroundcolor={\ifodd\value{lstnumber}\color{codegray}\fi},
+	linebackgroundsep=3pt,
+	linebackgroundwidth={\dimexpr\linewidth + (\lst@linebgrdsep)*2 \relax},
+	frame=lr,
+	xleftmargin=15pt,
+	xrightmargin=5pt,
+	framexleftmargin=0pt,
+	framexrightmargin=0pt,
+	basicstyle=\normalsize\consolas,
+	breaklines=true,  
+	captionpos=b,
+	explpreset={moredelim=[is][\color{red}]{<}{>}}}
+
+
+\lstset{language=Java,numbers=left,commentstyle=\consolasi\color{mygreen},keywordstyle=\color{ekeyword}\consolasb,stringstyle=\color{mymauve},showstringspaces=false}          % Set your language (you can change the language for each code-block optionally)
+
+\lstdefinestyle{nextej}{
+	language={Java},
+	morekeywords={context,role},
+	moredelim=**[is][\color{pgrey}]{~}{~}
+}
+
+\lstdefinestyle{otj}{
+	language={Java},
+	morekeywords={readonly,team,within,as,base,callin,playedBy,precedence,tsuper,with,when,after,before,replace,get,set},
+	moredelim=**[is][\color{pgrey}]{~}{~}
+}
+
+\renewcommand{\lstlistingname}{\TUFont Code}

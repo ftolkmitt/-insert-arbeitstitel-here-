@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+
+\node [role] (v2) at (-5,3) {Metamodell\\~};
+\node [role] (v1) at (-5,1) {Modell\\~};
+\node [role] (v3) at (1,3) {Transormation\\~};
+\node [role] (v4) at (1,1) {Werkzeug\\~};
+\draw [normarrow] (v1) edge node[below left]{Instanz von} (v2);
+\draw [normarrow] (v3) edge node[above]{kennt Struktur}(v2);
+\draw [normarrow] (v4) edge node[below]{liest}(v1);
+\draw [normarrow] (v4) edge node[below left]{delegiert}(v3);
+\node [role] (v5) at (7,1) {Modell\\~};
+\node [role] (v6) at (7,3) {Metamodell\\~};
+\draw [normarrow] (v3) edge node[above]{kennt Struktur} (v6);
+\draw [dottedline](-8.43,1.5736) -- (9.0052,1.6146);
+\node at (-8,2) {\textbf{M2}};
+\node at (-8,1) {\textbf{M1}};
+\draw [normarrow] (v5) edge node[below right]{Instanz von}(v6);
+\draw [normarrow] (v4) edge node[below]{generiert}(v5);
+\end{tikzpicture}

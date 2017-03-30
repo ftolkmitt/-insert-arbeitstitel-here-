@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+
+\node [class] (v1) at (-5,-1) {
+\textbf{Role definition}};
+\node [class] (v2) at (-5,1) {
+\textbf{Role}};
+\draw [implementation] (v1) edge (v2);
+\node [class] (v3) at (-5,-3) {
+\textbf{Institution}};
+\draw [association] (v3) edge node[right]{defines} (v1);
+
+\draw [fill] (-4.4999,-2.0387) node (v4) {} -- (-4.4155,-1.863) -- (-4.3452,-2.0317) -- (v4);
+\node[class] (v5) at (1,-1) {
+\textbf{Player}};
+\draw [aggregation] (v5) edge node[below left]{that} (v1);
+\node [class,rectangle split,rectangle split parts=2,text width = 7cm] (v6) at (1,5) {\textbf{ObjectWithRoles}
+\nodepart{second}+setRole(role:Object,inst:Object):void\\+getRole(role:Object,inst:Object):Object\\+removeRole(role:Object,inst:Object):void};
+\node [class] (v7) at (1,1) {\textbf{Requirements}};
+
+
+\draw [implementation] (v5) edge (v7);
+
+\draw [implementation] (v5.east) -- ++(1,0)-| (v6.-20);
+\draw [dottedarrow] (v2) --  ++(0,1) -| node[above left]{RQ} (v7);
+\end{tikzpicture}

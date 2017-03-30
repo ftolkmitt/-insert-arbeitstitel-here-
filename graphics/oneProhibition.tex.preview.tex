@@ -1,0 +1,48 @@
+%& C:\Users\Fabian\AppData\Roaming\TikzEdt\TikzEdt\023~1.0\TEMP_H~1
+\begin{document}
+\usetikzlibrary{positioning,shapes,shadows,arrows,calc,shapes.multipart}
+\tikzstyle{role}=[rectangle, draw=black, rounded corners, fill=white, drop shadow,
+text centered, anchor=north, text=black, text width=3cm]
+\tikzstyle{class}=[rectangle, draw=black, fill=white, drop shadow,
+text centered, anchor=north, text=black, text width=3cm]
+\tikzstyle{inheritance}=[->, >=open triangle 90, thick]
+\tikzstyle{fulfilment}=[->, >=triangle 60, thick]
+\tikzstyle{inheritfulfilment}=[->, >=triangle 60, thick,dashed]
+\tikzstyle{implementation}=[->,dashed, >=open triangle 90, thick]
+\tikzstyle{dottedarrow}=[->,dashed, thick]
+\tikzstyle{dottedline}=[-,dashed, thick]
+\tikzstyle{normarrow}=[->, thick]
+\tikzstyle{aggregation}=[-open diamond, thick]
+\tikzstyle{association}=[-, thick]
+\tikzstyle{line}=[-, thick]
+\tikzstyle{smallclass}=[rectangle, draw=black, fill=white, drop shadow,
+text centered, anchor=north, text=black, text width=1cm]
+	\begin{tikzpicture}
+	\node [role,minimum height = 0.75cm,text badly centered] (v1) at (7,0) {
+		\textbf{Rolle2}
+	};
+		\node [role,minimum height = 0.75cm,text badly centered] (v3) at (2.5,0) {
+		\textbf{Rolle}
+};
+\draw [open triangle 90 reversed-open triangle 90 reversed,>=open triangle 90, thick] (v3) edge (v1);
+
+\usetikzlibrary{calc}
+\pgftransformreset
+\node[inner sep=0pt,outer sep=0pt,minimum size=0pt,line width=0pt,text width=0pt,text height=0pt] at (current bounding box) {};
+%add border to avoid cropping by pdflibnet
+\foreach \border in {0.1}
+  \useasboundingbox (current bounding box.south west)+(-\border,-\border) rectangle (current bounding box.north east)+(\border,\border);
+\newwrite\metadatafile
+\immediate\openout\metadatafile=\jobname_BB.txt
+\path
+  let
+    \p1=(current bounding box.south west),
+    \p2=(current bounding box.north east)
+  in
+  node[inner sep=0pt,outer sep=0pt,minimum size=0pt,line width=0pt,text width=0pt,text height=0pt,draw=white] at (current bounding box) {
+\immediate\write\metadatafile{\p1,\p2}
+};
+\immediate\closeout\metadatafile
+\end{tikzpicture}
+
+\end{document}

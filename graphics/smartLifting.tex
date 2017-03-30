@@ -1,0 +1,41 @@
+\begin{tikzpicture}
+
+\node [smallclass,ultra thick] (v2) at (-4,4) {\textbf{R1}};
+\node [smallclass,ultra thick] (v1) at (-4,2) {\textbf{R2}};
+\node [smallclass] (v3) at (-4,0) {\textbf{R3}};
+\node [smallclass] (v4) at (-4,-2) {\textbf{R4}};
+\node [smallclass,ultra thick, draw=red] (v5) at (-4,-4) {\textbf{R5}};
+\node [smallclass] (v6) at (-4,-8) {\textbf{R7}};
+\draw [inheritance] (v1) edge (v2);
+\draw [inheritance] (v3) edge (v1);
+\draw [inheritance] (v4) edge (v3);
+\draw [inheritance] (v5) edge (v4);
+\draw [inheritance] (v6) edge (v5);
+\node [smallclass] (v8) at (0,2) {\textbf{B2}};
+\node [smallclass] (v7) at (0,0) {\textbf{B3}};
+\node [smallclass] (v9) at (0,-2) {\textbf{B4}};
+\node [smallclass,ultra thick] (v10) at (0,-6) {\textbf{B6}};
+\node [smallclass] (v11) at (0,-8) {\textbf{B7}};
+\draw [inheritance] (v7) edge (v8);
+\draw [inheritance] (v9) edge (v7);
+\draw [inheritance] (v10) edge (v9);
+\draw [inheritance] (v11) edge (v10);
+\draw [fulfilment] (v1) edge node[above]{playedBy} (v8);
+\draw [fulfilment] (v4) edge node[above]{playedBy} (v9);
+\draw [fulfilment] (v6) edge node[above]{playedBy}(v11);
+\draw [inheritfulfilment] (v3) edge node[]{vererbtes playedBy}(v8);
+\draw [inheritfulfilment] (v5) edge node[]{vererbtes playedBy}(v9);
+\node [text width = 7.5cm, text centered] (v12) at (6,3) {statische lifting Operation \textbf{B3} auf \textbf{R1}};
+\node [text width = 7.5cm, text centered] (v13) at (6,1) {zur Laufzeit soll \textbf{B6} als Unterklasse von \textbf{B3} durch diese Operation auf \textbf{R1} geliftet werden.};
+\node [text width = 7.5cm, text centered] (v14) at (6,-1) {alle \textit{playedBy} Relationen werden gesucht, und die folgenden Rollen-Basis-Paare als Kandidaten identifiziert:};
+\node (v15) at (6,-3) {\textbf{(R2,B2), (R3,B2), (R4,B4) (R5,B4)}};
+\draw [normarrow] (v12) edge (v13);
+\draw [normarrow] (v13) edge (v14);
+\draw [normarrow] (v14) edge (v15);
+\node [text width = 7.5cm, text centered] (v152) at (6,-5) {Die spezifischste Basis wird ermittelt : \textbf{B4}. Das dadurch resultierende Kandidatenset ist das folgende: };
+\node (v16) at (6,-7) {\textbf{(R4,B4) (R5,B4)}};
+\node [text width = 7.5cm, text centered] (v17) at (6,-9) {Die speziellste Rolle in diesem Set stellt \textcolor{red}{\textbf{R5}} dar. Deshalb ist diese die passende Rollentyp für \textcolor{red}{\textbf{B6}}. };
+\draw [normarrow] (v15) edge (v152);
+\draw [normarrow] (v152) edge (v16);
+\draw [normarrow] (v16) edge (v17);
+\end{tikzpicture}
