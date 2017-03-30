@@ -1,5 +1,5 @@
 % !TeX encoding = UTF-8
-\documentclass[colortitle]{tudbook}
+\documentclass[10pt,colortitle]{tudbook}
 
 \input{preambel/usedPackages}
 
@@ -45,7 +45,7 @@ $endif$
   \singlespacing
 $if(toc)$
   \tableofcontents
-$endif$  
+$endif$
   \onehalfspacing
 \pagenumbering{arabic}
 
