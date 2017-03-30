@@ -29,6 +29,8 @@ RUN apt-get update && \
   texlive-lang-portuguese \
   texlive-xetex \
   texlive-fonts-extra \
-  texlive-lang-german && \
+  texlive-lang-german \
+  pandoc && \
   apt-get autoclean && apt-get --purge --yes autoremove && \
+  cp -R /my_files/fonts/* /usr/share/fonts && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
