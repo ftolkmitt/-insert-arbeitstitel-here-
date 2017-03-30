@@ -11,6 +11,8 @@ FROM phusion/baseimage:latest
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
+COPY . /my_files
+
 # ...put your own build instructions here...
 # Install all TeX and LaTeX dependences
 RUN apt-get update && \
